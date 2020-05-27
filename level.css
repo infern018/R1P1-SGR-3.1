@@ -1,0 +1,10 @@
+a {
+    color: white;
+}
+
+button{
+    position: relative;
+    margin: 10px;
+    margin-top: -10px;
+    left:590px;
+}

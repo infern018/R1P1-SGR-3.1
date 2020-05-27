@@ -1,0 +1,25 @@
+Level 1: duration: 9s
+
+Level 1: 5 points for each collide,
+         -1 for each bullet is bullets.length > 5;
+
+        negations = 0;
+        if(bullet.length>5)
+        {
+            negations = bullet.length-5;
+        }
+
+         total score  = (enemies.length-filteredAry.length)*5 - (negations)
+
+//////////////////////////////////////////////////
+
+
+Level 2: dx = 9.0305
+         dy = 9.3514
+
+
+///////////////////////////////////////////////////
+
+Level 3: dx = same as level 2
+              safe bullets : 7
+              totalScore > 60 : won

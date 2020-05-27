@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="level.css">
+
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+    <script src="./js/pixi.js"></script>
+
+</head>
+<body>
+
+<script src="./level3/collide.js"></script>
+<script src="./level3/gameLoop.js"></script>
+<script src="./level3/triggerEvents.js"></script>
+
+<script>
+    let app;
+    let player, enemy;
+    let keys = {};
+    let keysDiv;
+    let bullets = [];
+    let bulletSpeed = 10;
+    let enemies = [];
+    let dys = [];
+    let bulletCount = 0;
+    let gameName;
+    let cols = [];
+    let filteredAry = [];
+    let totalScore;
+    let level3;
+    let this_var = true;
+
+    for(let i=0; i<13; i++)
+    {
+        cols[i]=0;
+    }
+
+    
+
+    window.onload = function(){
+
+        alert("Level-3 Rules:\r\n1.Hitting each enemy will fetch you 7 points.\r\n2.Thrice the number of bullets(>5) will be subtracted from the Total Score.\r\n3.Score at least 101 points to complete the game!");
+
+        app = new PIXI.Application(
+            {
+                width:1272,
+                height:572,
+                backgroundColor: 0xAAAAAA
+            }
+        );
+
+        const background = PIXI.Sprite.from('images/env2.jpg');
+        background.width = app.view.width;
+        background.height = app.view.height;
+        app.stage.addChild(background);
+
+
+        document.body.appendChild(app.view);
+        app.stage.interactive = true;
+        document.body.addEventListener("pointerdown", fireBullet);
+        
+        level3 = new PIXI.Container();
+        app.stage.addChild(level3);
+    
+
+        //player object
+        player = new PIXI.Sprite.from('images/player.png');
+        player.anchor.set(0.5);
+        player.x = 20;
+        player.y = app.view.height -20;
+        level3.addChild(player);
+
+        
+
+        //enemy objects
+        for(let i=0;i<17;i++)
+        {
+            enemy = new PIXI.Sprite.from('images/enemy.png');
+            enemy.anchor.set(0.5);
+            enemy.x = (300 + i*70);
+            enemy.y = 0;
+            enemies.push(enemy);
+            level3.addChild(enemy);
+        }
+
+        //keyboard events
+        
+        window.addEventListener('keydown', keysDown);
+        window.addEventListener('keyup', keysUp);
+
+        app.ticker.add(gameLoop);
+
+    }
+
+   
+    
+    for(let i=0; i<1000; i++)
+    {
+        dys[i]=9.3514;  //13.106432708623869 .. 9.3514
+    }
+
+    
+    
+</script>
+
+<div class="myDiv"></div>
+</body>
+</html>
