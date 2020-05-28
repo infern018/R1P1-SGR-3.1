@@ -16,7 +16,7 @@ Get the code by cloning this repository using git
 ```
 git clone  https://github.com/infern018/R1P1-SGR-3.1.git
 ```
-Once downloaded,  open the  follwing file with your web browser
+Once downloaded,  open the  follwing file with start Live Server on VS Code
 ##### index.html
 The app should now be running at your browser.
 
